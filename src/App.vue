@@ -1,14 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <p>My first Vue APP</p>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <div>Hello world from {{ name }}</div>
+
+  <button @click="changeName(123, $event)">change name</button>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      name: "Volodymyr",
+    };
+  },
 
-}
+  methods: {
+    changeName(arg, event) {
+      console.log(arg, event);
+      this.name = Math.floor(Math.random() * 1000);
+    },
+  },
+};
 </script>
 
 <style>
