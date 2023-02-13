@@ -1,42 +1,32 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <div>Hello world from {{ name }}</div>
+  <button @click="increment">increment</button>
 
-  <div>
-    <img :src="img" v-bind:alt="`alt is: ${alt}`" />
-  </div>
+  <div>{{ counter }}</div>
 
-  <!--first variant-->
-  <!--  <button @click="name = Math.floor(Math.random() * 1000)">change name</button>-->
-
-  <!--  second variant-->
-  <button @click="changeName">change name</button>
-
-  <!--  <ButtonTest :text="`my awesome button!`" :onClick="changeName" />-->
-  <ButtonTest :text="`my awesome button!`" @button-click="changeName" />
+  <button @click="decrement">decrement</button>
+  <button @click="reset">reset</button>
 </template>
 
 <script>
-import ButtonTest from "@/components/ButtonTest";
-
 export default {
   name: "App",
-  components: {
-    ButtonTest,
-  },
+  components: {},
   data() {
     return {
-      name: "Volodymyr",
-      img:
-        "https://img.freepik.com/premium-photo/phoenix-bird-fire-mythological-fenix-bird-with-\n" +
-        "    flames-fantasy-illustration_691560-3551.jpg",
-      alt: "Fenix",
+      counter: 0,
     };
   },
 
   methods: {
-    changeName() {
-      this.name = Math.floor(Math.random() * 1000);
+    increment() {
+      this.counter += 1;
+    },
+    decrement() {
+      this.counter -= 1;
+    },
+    reset() {
+      this.counter = 0;
     },
   },
 };
