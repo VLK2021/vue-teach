@@ -14,6 +14,8 @@
 
   <!--  <ButtonTest :text="`my awesome button!`" :onClick="changeName" />-->
   <ButtonTest :text="`my awesome button!`" @button-click="changeName" />
+
+  <div :key="arr + 1" v-for="arr of array">{{ arr }}</div>
 </template>
 
 <script>
@@ -27,6 +29,7 @@ export default {
   data() {
     return {
       name: "Volodymyr",
+      array: [1, 2, 3, 4, 56],
       img:
         "https://img.freepik.com/premium-photo/phoenix-bird-fire-mythological-fenix-bird-with-\n" +
         "    flames-fantasy-illustration_691560-3551.jpg",
